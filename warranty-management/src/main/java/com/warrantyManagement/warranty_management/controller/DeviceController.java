@@ -41,6 +41,14 @@ public class DeviceController {
 		return new ServiceResult<DeviceDto>(HttpStatus.OK.value(), true, HttpStatus.OK.getReasonPhrase(), deviceDto, LocalDateTime.now());
 	}
 	
+	@GetMapping("/serialNumber={id}")
+	public ServiceResult<DeviceDto> getDeviceBySerialNumber(@PathVariable("id") String serialNumber){
+		DeviceDto deviceDto = deviceService.getDeviceBySerialNumber(serialNumber);
+		
+		return new ServiceResult<DeviceDto>
+		(HttpStatus.OK.value(), true, HttpStatus.OK.getReasonPhrase(), deviceDto, LocalDateTime.now());
+	}
+	
 	// Get All Devices
 	@GetMapping
 	public ServiceResult<List<DeviceDto>> getAllDevices(){
@@ -58,11 +66,30 @@ public class DeviceController {
 		return new ServiceResult<DeviceDto>(HttpStatus.OK.value(), true, "Device was updated successfully with given id: " + deviceId, updatedDevice, LocalDateTime.now());
 	}
 	
+	// Update Device By Serial Number
+	@PutMapping("/serialNumber={id}")
+	public ServiceResult<DeviceDto> updateDeviceBySerialNumber(@PathVariable("id") String serialNumber,
+			@RequestBody DeviceDto deviceDto){
+		DeviceDto updatedDevice = deviceService.updateDeviceBySerialNumber(serialNumber, deviceDto);
+		
+		return new ServiceResult<DeviceDto>
+		(HttpStatus.OK.value(), true, "Device was updated successfully with given serial number: " + serialNumber, updatedDevice, LocalDateTime.now());
+	}
+	
 	// Delete Device
 	@DeleteMapping("{id}")
 	public ServiceResult<String> deleteDevice(@PathVariable("id") Long deviceId){
 		deviceService.deleteDevice(deviceId);
 		
 		return new ServiceResult<String>(HttpStatus.OK.value(), true, "Device was deleted successfully with given id: " + deviceId, null, LocalDateTime.now());
+	}
+	
+	// Delete Device by Serial Number
+	@DeleteMapping("/serialNumber={id}")
+	public ServiceResult<String> deleteDeviceBySerialNumber(@PathVariable("id") String serialNumber){
+		deviceService.deleteDeviceBySerialNumber(serialNumber);
+		
+		return new ServiceResult<String>
+		(HttpStatus.OK.value(), true, "Device was deleted successfully with given serial number: " + serialNumber, null, LocalDateTime.now());
 	}
 }

@@ -67,7 +67,7 @@ public class WarrantyController {
 		WarrantyDto updatedWarranty = warrantyService.updateWarrantyById(warrantyId, warrantyDto);
 		
 		return new ServiceResult<WarrantyDto>
-		(HttpStatus.OK.value(), true, "Warranty record was updated with given warranty id" + warrantyId, updatedWarranty, LocalDateTime.now());
+		(HttpStatus.OK.value(), true, "Warranty record was updated with given warranty id: " + warrantyId, updatedWarranty, LocalDateTime.now());
 	}
 	
 	@PutMapping("/deviceId={id}")
@@ -76,14 +76,13 @@ public class WarrantyController {
 		WarrantyDto updatedWarranty = warrantyService.updateWarrantyByDeviceID(deviceId, warrantyDto);
 		
 		return new ServiceResult<WarrantyDto>
-		(HttpStatus.OK.value(), true, "Warranty record was updated with given device id" + deviceId, updatedWarranty, LocalDateTime.now());
+		(HttpStatus.OK.value(), true, "Warranty record was updated with given device id: " + deviceId, updatedWarranty, LocalDateTime.now());
 	}
 	
 	@DeleteMapping("{id}")
 	public ServiceResult<String> deleteWarrantyById(@PathVariable("id") Long warrantyId){
 		warrantyService.deleteWarrantyById(warrantyId);
 		
-		//return ResponseEntity.ok("Warranty record was successfully deleted with given id: " + warrantyId);
 		return new ServiceResult<String>
 		(HttpStatus.OK.value(), true, "Warranty record was deleted with given warranty id" + warrantyId, null, LocalDateTime.now());
 	}
@@ -92,7 +91,6 @@ public class WarrantyController {
 	public ServiceResult<String> deleteWarrantyByDeviceId(@PathVariable("id") Long deviceId){
 		warrantyService.deleteWarrantyByDeviceId(deviceId);
 		
-		//return ResponseEntity.ok("Warranty record was successfully deleted with given device id: " + deviceId);
 		return new ServiceResult<String>
 		(HttpStatus.OK.value(), true, "Warranty record was deleted with given device id" + deviceId, null, LocalDateTime.now());
 	}

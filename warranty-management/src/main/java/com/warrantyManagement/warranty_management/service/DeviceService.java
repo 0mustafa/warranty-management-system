@@ -9,9 +9,15 @@ public interface DeviceService {
 	
 	DeviceDto getDeviceById(Long deviceId);
 	
+	DeviceDto getDeviceBySerialNumber(String serialNumber);
+	
 	List<DeviceDto> getAllDevices();
 	
 	DeviceDto updateDevice(Long deviceId, DeviceDto updatedDevice);
 	
+	DeviceDto updateDeviceBySerialNumber(String serialNumber, DeviceDto updatedDevice);
+	
 	void deleteDevice(Long deviceId);
+	
+	void deleteDeviceBySerialNumber(String serialNumber);
 }

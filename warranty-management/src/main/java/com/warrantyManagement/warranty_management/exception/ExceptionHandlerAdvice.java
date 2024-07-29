@@ -17,4 +17,11 @@ public class ExceptionHandlerAdvice {
 		return new ServiceResult<String>
 		(HttpStatus.NOT_FOUND.value(), false, exception.getMessage(), null, LocalDateTime.now());
 	}
+	
+	@ExceptionHandler(value = EmptyValueException.class)
+	public ServiceResult<String> handleEmptyValueException(RuntimeException exception){
+		return new ServiceResult<String>
+		(HttpStatus.NO_CONTENT.value(), false, exception.getMessage(), null, LocalDateTime.now());
+	}
+	
 }
