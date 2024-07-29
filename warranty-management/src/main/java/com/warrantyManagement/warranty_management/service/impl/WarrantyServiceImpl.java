@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.warrantyManagement.warranty_management.dto.WarrantyDto;
 import com.warrantyManagement.warranty_management.entity.Warranty;
+import com.warrantyManagement.warranty_management.exception.EmptyValueException;
 import com.warrantyManagement.warranty_management.exception.ResourceNotFoundException;
 import com.warrantyManagement.warranty_management.mapper.WarrantyMapper;
 import com.warrantyManagement.warranty_management.repository.WarrantyRepository;
@@ -20,18 +21,34 @@ public class WarrantyServiceImpl implements WarrantyService{
 	
 	@Autowired
 	private WarrantyRepository warrantyRepository;
+	
+	public String checkWarranty(LocalDate purchaseDate) {
+		return (Duration.between(purchaseDate.atStartOfDay(), LocalDate.now().atStartOfDay()).toDays() > 730) ? "The warranty expired!" : "The warranty continous";
+	}
 
 	@Override
 	public WarrantyDto createWarranty(WarrantyDto warrantyDto) {
 		
 		Warranty warranty = WarrantyMapper.mapToWarranty(warrantyDto);
 		
-		String status = (Duration.between(warranty.getPurchaseDate().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays() > 730) ? "The warranty expired!" : "The warranty continous!";
-		warranty.setWarrantyStatus(status);
+		if(warranty.getPurchaseDate().toString().isEmpty() || 
+				warranty.getDevice().getSerialNumber().isEmpty() ||
+				warranty.getDevice().getBrand().isEmpty() ||
+				warranty.getDevice().getModel().isEmpty()) {
+			throw new EmptyValueException("You should fill all fields!");
+		}else {
+			String status = this.checkWarranty(warranty.getPurchaseDate());
+			warranty.setWarrantyStatus(status);
+			
+			try {
+				warrantyRepository.save(warranty);
+				
+			} catch (Exception e) {
+				throw new ResourceNotFoundException(e.getMessage());
+			}
+		}
 		
-		Warranty savedWarranty = warrantyRepository.save(warranty);
-		
-		return WarrantyMapper.mapToWarrantyDto(savedWarranty);
+		return WarrantyMapper.mapToWarrantyDto(warranty);
 	}
 
 	@Override
@@ -76,6 +93,9 @@ public class WarrantyServiceImpl implements WarrantyService{
 		if(warrantyDto.getPurchaseDate() != null) warranty.setPurchaseDate(warrantyDto.getPurchaseDate());
 		if(warrantyDto.getWarrantyStatus() != null) warranty.setWarrantyStatus(warrantyDto.getWarrantyStatus());
 		
+		// Check the warranty status
+		warranty.setWarrantyStatus(this.checkWarranty(warranty.getPurchaseDate()));
+		
 		Warranty savedWarranty = warrantyRepository.save(warranty);
 		
 		return WarrantyMapper.mapToWarrantyDto(savedWarranty);
@@ -89,6 +109,9 @@ public class WarrantyServiceImpl implements WarrantyService{
 		if(warrantyDto.getDevice() != null) warranty.setDevice(warrantyDto.getDevice());
 		if(warrantyDto.getPurchaseDate() != null) warranty.setPurchaseDate(warrantyDto.getPurchaseDate());
 		if(warrantyDto.getWarrantyStatus() != null) warranty.setWarrantyStatus(warrantyDto.getWarrantyStatus());
+		
+		// Check the warranty status
+		warranty.setWarrantyStatus(this.checkWarranty(warranty.getPurchaseDate()));
 		
 		Warranty savedWarranty = warrantyRepository.save(warranty);
 		
