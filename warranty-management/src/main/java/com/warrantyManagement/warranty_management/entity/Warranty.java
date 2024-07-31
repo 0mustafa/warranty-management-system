@@ -26,9 +26,9 @@ public class Warranty {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "device_id")
-	private Device device;
+	private Device deviceId;
 	
 	@Column(name = "purchase_date")
 	private LocalDate purchaseDate;
