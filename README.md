@@ -1,4 +1,4 @@
-# Garanti Yönetim Sistemi
+# Garanti Takip Sistemi
 
 Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürelerini basitçe takip edebilmek için geliştirilmiştir. <br>
 
@@ -6,7 +6,7 @@ Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürele
 - Projede `MVC` yazılım mimarisi kullanılmıştır.<br>
 - UI kısmında kolaylık olması için veri erişim noktasında direkt varlıklarımızı kullanmak yerine `DTO - (Data Transfer Object)` varlıkları kullanılmıştır.<br>
 - Proje dosya mimarisi:<br>
-- <img src="https://github.com/user-attachments/assets/b8564eb9-33dc-46f4-b9d8-8d5074c187f4"/>
+- <img src="https://github.com/user-attachments/assets/670c7c2e-5acc-445f-b5b7-661088afeecd"/>
 
 
 
@@ -29,97 +29,100 @@ Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürele
   <strong>url: </strong>Kok_url/devices<br>
   <details>
     <summary><h3>POST - Add Device</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/eece8133-2517-455f-a209-1b29d2037c5f"/><br><br>
-    <strong>state: </strong>fail<br>
-    <img src="https://github.com/user-attachments/assets/294103bf-079d-4083-9aff-d64e24a3f410"/><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Ekleme işlemi başarılı.<br>
+    <img src="https://github.com/user-attachments/assets/24a31f85-c4a4-4082-aa36-f059bb217b64"/><br><br>
+    <strong>Durum: </strong>başarısız<br>
+    <strong>Açıklama: </strong>Cihazın seri numarası girilmemiş.<br>
+    <img src="https://github.com/user-attachments/assets/bf08653c-20e5-4ace-9c1f-ed3b547ce3d7"/><br><br>
+    <strong>Durum: </strong>başarısız<br>
+    <strong>Açıklama: </strong>Cihazın satın alma tarihi girilmemiş.<br>
+    <img src="https://github.com/user-attachments/assets/86a50db8-60d3-41ca-9108-9867d95c1864"/><br><br>
+    <strong>Durum: </strong>başarısız<br>
+    <strong>Açıklama: </strong>Cihazın satın alma tarihi yanlış girilmiş.<br>
+    <img src="https://github.com/user-attachments/assets/172e04b3-20f0-421b-b826-37f8d44636ef"/><br><br>
   </details>
+  
   <details>
     <summary><h3>GET - Get All Devices</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/1c05022a-6f9c-4168-9ddd-047b3da414af"/><br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Tüm cihazlar getirildi.<br>
+    <img src="https://github.com/user-attachments/assets/a7551c06-2db0-4932-b9ad-8ace617be9de"/><br><br>
   </details>
+  
   <details>
     <summary><h3>GET - Get Device by Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/e8432a50-e9c6-4e4a-a6e1-05f9d5e33092"/><br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen id numarasına sahip cihaz getirildi.<br>
+    <img src="https://github.com/user-attachments/assets/897e1cbd-648b-4d53-9137-af54991e393d"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Girilen id numarasına sahip cihaz bulunmamaktadır.<br>
+    <img src="https://github.com/user-attachments/assets/b9d6d849-a73f-4577-a9c1-729c9d6e1d03"/><br><br>
   </details>
+  
   <details>
     <summary><h3>GET - Get Device by Serial Number</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/serialNumber={id}<br>
-    <img src="https://github.com/user-attachments/assets/457a059c-fc5c-40d1-bfaf-34db5fd98f2e"/><br><br>
+    <strong>Url: </strong>Kok_url/serialNumber={id}<br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen seri numarasına sahip cihaz getirildi.<br>
+    <img src="https://github.com/user-attachments/assets/84ac2b3d-866e-49fc-86ae-aeba8ee63fae"/><br><br>
+    <strong>Durum: </strong>success<br>
+    <strong>Açıklama: </strong>Girilen seri numarasına sahip cihaz bulunmamaktadır.<br>
+    <img src="https://github.com/user-attachments/assets/665e0e2d-8afc-4aec-ba62-5829d2ca9578"/><br><br>
   </details>
+  
+  <details>
+    <summary><h3>PUT - Check All Warranties</h3></summary>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Sistemdeki tüm cihazların garanti durumları kontrol edildi.<br>
+    <img src="https://github.com/user-attachments/assets/1daceddd-49f2-4dd9-8618-8702f1559527"/><br><br>
+  </details>
+  
   <details>
     <summary><h3>PUT - Update Device by Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/d10e6e06-9801-4c83-9a62-85724f852ffc"/><br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen id numarasına sahip cihaz güncellendi.<br>
+    <img src="https://github.com/user-attachments/assets/84d7a9f6-f5c1-4a62-851e-ab3c1c1e1c24"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi boş bırakılmış.<br>
+    <img src="https://github.com/user-attachments/assets/9d9d17cc-3296-470e-8a20-fa8b9ea7c9ce"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi yanlış biçimde girilmiş.<br>
+    <img src="https://github.com/user-attachments/assets/d65af81a-24a0-48c1-9a34-038a4cf7fbae"/><br><br>
   </details>
+  
   <details>
     <summary><h3>PUT - Update Device by Serial Number</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/serialNumber={id}<br>
-    <img src="https://github.com/user-attachments/assets/54664b91-8fd9-4a0a-ae71-5c74f8c2d26b"/><br><br>
+    <strong>Url: </strong>Kok_url/serialNumber={id}<br><br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen seri numarasına  sahip cihaz güncellendi.<br>
+    <img src="https://github.com/user-attachments/assets/5270af2d-2797-4808-90be-237f132b937d"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi boş bırakılmış.<br>
+    <img src="https://github.com/user-attachments/assets/6f6903dd-edf7-4819-a7ba-1fb88d7347a8"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi yanlış biçimde girilmiş.<br>
+    <img src="https://github.com/user-attachments/assets/4f4b34f0-9a04-4391-ab92-c8b754199f79"/><br><br>
   </details>
+  
   <details>
     <summary><h3>DELETE - Delete Device by Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/93e37465-442c-41c0-a1b8-f90733bbefc0"/><br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen id numarasına sahip cihaz silindi.<br>
+    <img src="https://github.com/user-attachments/assets/a4c7f31b-12e8-496b-84f2-a901cbc23f06"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Girilen id numarasına sahip bir cihaz bulunmamaktadır.<br>
+    <img src="https://github.com/user-attachments/assets/e4f51667-b790-4a16-8255-9f355585d000"/><br><br>
   </details>
+  
   <details>
     <summary><h3>DELETE - Delete Device by Serial Number</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/serialNumber={id}<br>
-    <img src="https://github.com/user-attachments/assets/e938162e-3bcc-4be8-9318-4639482664ac"/><br><br>
-  </details>
-</details>
-<details>
-  <summary><h2>Garanti İşlemleri</h2></summary>
-  <strong>url: </strong>Kok_url/warranties<br>
-  <details>
-    <summary><h3>POST - Add Warranty</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/8317dcc7-a59c-4658-b5b2-0a90051f2831"/><br><br>
-    <strong>state: </strong>fail<br>
-    <img src="https://github.com/user-attachments/assets/bb8a83bb-e76b-43b8-98fa-403bd76a4b0c"/><br>
-    <img src="https://github.com/user-attachments/assets/39f8702e-5d86-4571-a4e3-23d4c4ee79c2"/><br>
-  </details>
-  <details>
-    <summary><h3>GET - Get All Warranties</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/8ac99b0f-f311-4313-afed-30d8938dcc3b"/><br>
-  </details>
-  <details>
-    <summary><h3>GET - Get Warranty By Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/61b1410a-cd9b-458c-b922-05dc5c36dbc7"/><br>
-  </details>
-  <details>
-    <summary><h3>GET - Get Warranty By Device Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/deviceId={id}<br>
-    <img src="https://github.com/user-attachments/assets/147aad93-b449-4878-9d0c-3f87de0879f6"/><br>
-  </details>
-  <details>
-    <summary><h3>PUT - Update Warranty By Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/c23bfa70-d940-4bca-84e4-81de1666e871"/><br>
-  </details>
-  <details>
-    <summary><h3>PUT - Update Warranty By Device Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/deviceId={id}<br>
-    <img src="https://github.com/user-attachments/assets/0f12b179-150e-480f-bce5-d66fb00afe94"/><br>
-  </details>
-  <details>
-    <summary><h3>DELETE - Delete Warranty By Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <img src="https://github.com/user-attachments/assets/e3a762ee-5916-417c-8c52-40a57f1e07f5"/><br>
-  </details>
-  <details>
-    <summary><h3>DELETE - Delete Warranty By Device Id</h3></summary>
-    <strong>state: </strong>success<br>
-    <strong>url: </strong>Kok_url/deviceId={id}<br>
-    <img src="https://github.com/user-attachments/assets/2303697f-b87a-4eab-a1f0-33c2367299fb"/><br>
+    <strong>Url: </strong>Kok_url/serialNumber={id}<br><br>
+    <strong>Durum: </strong>Başarılı<br>
+    <strong>Açıklama: </strong>Girilen seri numarasına sahip cihaz silindi.<br>
+    <img src="https://github.com/user-attachments/assets/ea927941-8ab6-408e-9c46-6eac2ef114b8"/><br><br>
+    <strong>Durum: </strong>Başarısız<br>
+    <strong>Açıklama: </strong>Girilen seri numarasına sahip bir cihaz bulunmamaktadır.<br>
+    <img src="https://github.com/user-attachments/assets/de2f5581-b1c0-4519-b09a-075267ba7f99"/><br><br>
   </details>
 </details>
