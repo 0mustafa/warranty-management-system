@@ -3,19 +3,22 @@ package com.warrantyManagement.warranty_management.service;
 import java.util.List;
 
 import com.warrantyManagement.warranty_management.dto.DeviceDto;
+import com.warrantyManagement.warranty_management.utility.DeviceResponseEntity;
 
 public interface DeviceService {
-	DeviceDto createDevice(DeviceDto deviceDto);
+	DeviceResponseEntity createDevice(DeviceDto deviceDto);
 	
-	DeviceDto getDeviceById(Long deviceId);
+	DeviceResponseEntity getDeviceById(Long deviceId);
 	
-	DeviceDto getDeviceBySerialNumber(String serialNumber);
+	DeviceResponseEntity getDeviceBySerialNumber(String serialNumber);
 	
-	List<DeviceDto> getAllDevices();
+	List<DeviceResponseEntity> getAllDevices();
+
+	void checkAllWarranties();
 	
-	DeviceDto updateDevice(Long deviceId, DeviceDto updatedDevice);
+	DeviceResponseEntity updateDevice(Long deviceId, DeviceDto updatedDevice);
 	
-	DeviceDto updateDeviceBySerialNumber(String serialNumber, DeviceDto updatedDevice);
+	DeviceResponseEntity updateDeviceBySerialNumber(String serialNumber, DeviceDto updatedDevice);
 	
 	void deleteDevice(Long deviceId);
 	

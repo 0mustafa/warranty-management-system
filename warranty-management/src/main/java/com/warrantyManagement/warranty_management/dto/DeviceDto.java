@@ -1,6 +1,8 @@
 package com.warrantyManagement.warranty_management.dto;
 
 
+import com.warrantyManagement.warranty_management.entity.Warranty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +15,5 @@ public class DeviceDto {
 	private String SerialNumber;
 	private String brand;
 	private String model;
+	private Warranty warranty;
 }

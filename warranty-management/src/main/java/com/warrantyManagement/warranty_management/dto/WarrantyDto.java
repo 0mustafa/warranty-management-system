@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class WarrantyDto {
 	private Long id;
-	private Device device;
+	private Device deviceId;
 	private LocalDate purchaseDate;
 	private String warrantyStatus;
 }
