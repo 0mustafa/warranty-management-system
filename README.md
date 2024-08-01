@@ -84,9 +84,6 @@ Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürele
     <strong>Açıklama: </strong>Girilen id numarasına sahip cihaz güncellendi.<br>
     <img src="https://github.com/user-attachments/assets/84d7a9f6-f5c1-4a62-851e-ab3c1c1e1c24"/><br><br>
     <strong>Durum: </strong>Başarısız<br>
-    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi boş bırakılmış.<br>
-    <img src="https://github.com/user-attachments/assets/9d9d17cc-3296-470e-8a20-fa8b9ea7c9ce"/><br><br>
-    <strong>Durum: </strong>Başarısız<br>
     <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi yanlış biçimde girilmiş.<br>
     <img src="https://github.com/user-attachments/assets/d65af81a-24a0-48c1-9a34-038a4cf7fbae"/><br><br>
   </details>
@@ -97,9 +94,6 @@ Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürele
     <strong>Durum: </strong>Başarılı<br>
     <strong>Açıklama: </strong>Girilen seri numarasına  sahip cihaz güncellendi.<br>
     <img src="https://github.com/user-attachments/assets/5270af2d-2797-4808-90be-237f132b937d"/><br><br>
-    <strong>Durum: </strong>Başarısız<br>
-    <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi boş bırakılmış.<br>
-    <img src="https://github.com/user-attachments/assets/6f6903dd-edf7-4819-a7ba-1fb88d7347a8"/><br><br>
     <strong>Durum: </strong>Başarısız<br>
     <strong>Açıklama: </strong>Güncellenmek istenen cihazın satın alma tarihi yanlış biçimde girilmiş.<br>
     <img src="https://github.com/user-attachments/assets/4f4b34f0-9a04-4391-ab92-c8b754199f79"/><br><br>
