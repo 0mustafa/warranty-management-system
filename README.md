@@ -66,7 +66,7 @@ Bu proje başta IoT nesneleri olmak üzere çeşitli ürünlerin garanti sürele
     <strong>Durum: </strong>Başarılı<br>
     <strong>Açıklama: </strong>Girilen seri numarasına sahip cihaz getirildi.<br>
     <img src="https://github.com/user-attachments/assets/84ac2b3d-866e-49fc-86ae-aeba8ee63fae"/><br><br>
-    <strong>Durum: </strong>success<br>
+    <strong>Durum: </strong>Başarısız<br>
     <strong>Açıklama: </strong>Girilen seri numarasına sahip cihaz bulunmamaktadır.<br>
     <img src="https://github.com/user-attachments/assets/665e0e2d-8afc-4aec-ba62-5829d2ca9578"/><br><br>
   </details>
